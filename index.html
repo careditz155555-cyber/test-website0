@@ -1,14 +1,169 @@
+<!-- ===================== index.html ===================== -->
 <!DOCTYPE html>
-<html>
-<head<link rel="stylesheet" href="style.css">
-    <title>My First Website</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Server</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<script src="script.js"></script>
 <body>
-    <h1>Discord Investigations Services</h1>
-    <p>Welcome to the DIS website. Here you can find the top cases and their progress. You can also meet the foundership team as well as the investigations, security and dev team!.</p>
-</body<h1>John's Website</h1>
 
-<button id="colorBtn">Change Background</button>
->
+<header class="navbar">
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>American Designs</h1>
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h2>Elite Design Team</h2>
+  <p>High-quality graphics, liveries, and custom designs.</p>
+  <button onclick="scrollToPortfolio()">View Work</button>
+</section>
+
+<section id="portfolio" class="portfolio">
+  <h2>Our Work</h2>
+  <div class="gallery" id="gallery">
+    <!-- Images added via JS -->
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Join or Hire Us</h2>
+  <p>DM us on Discord or email us.</p>
+  <button onclick="contactAlert()">Contact</button>
+</section>
+
+<footer>
+  <p>© 2026 American Designs. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
 </html>
+
+
+/* ===================== style.css ===================== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f0f;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #111;
+  position: sticky;
+  top: 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00bcd4;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #111, #1f1f1f);
+}
+
+.hero h2 {
+  font-size: 3rem;
+}
+
+.hero button {
+  padding: 10px 20px;
+  background: #00bcd4;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.portfolio {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.contact {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+}
+
+
+// ===================== script.js =====================
+const images = [
+  "work1.jpg",
+  "work2.jpg",
+  "work3.jpg",
+  "work4.jpg",
+  "work5.jpg"
+];
+
+const gallery = document.getElementById("gallery");
+
+images.forEach(src => {
+  const img = document.createElement("img");
+  img.src = src;
+  gallery.appendChild(img);
+});
+
+function scrollToPortfolio() {
+  document.getElementById("portfolio").scrollIntoView({ behavior: "smooth" });
+}
+
+function contactAlert() {
+  alert("Contact us on Discord: YourServer#1234");
+}
