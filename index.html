@@ -48,27 +48,6 @@
 </body>
 </html>
 
-// ===================== script.js =====================
-const images = [
-  "work1.jpg",
-  "work2.jpg",
-  "work3.jpg",
-  "work4.jpg",
-  "work5.jpg"
-];
-
-const gallery = document.getElementById("gallery");
-
-images.forEach(src => {
-  const img = document.createElement("img");
-  img.src = src;
-  gallery.appendChild(img);
-});
-
-function scrollToPortfolio() {
-  document.getElementById("portfolio").scrollIntoView({ behavior: "smooth" });
-}
-
 function contactAlert() {
   alert("Contact us on Discord: https://discord.gg/dxHHXeRd8Z");
 }
